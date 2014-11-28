@@ -1,11 +1,11 @@
 using System.Dynamic;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace OpenRasta.Xix
 {
   public class Xml : DynamicObject
   {
-    private readonly string _nsExpanded;
     private readonly string _nsPrefix;
     private readonly XNamespace _xNamespace;
 
@@ -23,9 +23,11 @@ namespace OpenRasta.Xix
 
     public override bool TryGetMember(GetMemberBinder binder, out object result)
     {
+      var name = binder.Name.ConvertUndescores();
+
       result = _nsPrefix != null
-        ? new DynamicElement(_nsPrefix, _xNamespace, binder.Name)
-        : new DynamicElement(_xNamespace, binder.Name);
+        ? new DynamicElement(_nsPrefix, _xNamespace, name)
+        : new DynamicElement(_xNamespace, name);
 
 
       return true;

@@ -60,7 +60,7 @@ namespace OpenRasta.Xix
 
     public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
     {
-      var newProperty = new XAttribute(binder.Name, args[0]);
+      var newProperty = new XAttribute(binder.Name.ConvertUndescores(), args[0]);
       WrappedElement.Add(newProperty);
       result = this;
       return true;

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenRasta.Xix;
 
-namespace ConsoleApplication1
+namespace Tests
 {
   public class aliased_namespaces
   {

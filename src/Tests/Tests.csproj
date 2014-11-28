@@ -7,8 +7,8 @@
     <ProjectGuid>{4A5706A0-137F-4E42-A1CB-0AD4E69DECB0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
-    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,9 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attributes.cs" />
     <Compile Include="default_namespace.cs" />
-    <Compile Include="New\child_element.cs" />
-    <Compile Include="New\root_element.cs" />
+    <Compile Include="child_element.cs" />
+    <Compile Include="root_element.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="aliased_namespaces.cs" />
   </ItemGroup>

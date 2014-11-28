@@ -79,6 +79,8 @@ var document =
     [html.head[html.body
       [svg.width("200px").height("100px")]
     ]];
+
+    svg.width-height
 ```
 ```xml
 <codeSample>
@@ -92,8 +94,7 @@ var document =
 
  - [ ] Serialization to HTML5 (low priority)
  - [ ] Prefixed namespace attributes
- - [ ] Dash in attribute names e.g. 'my-attrib="..."'
+ - [x] Dash in attribute names e.g. 'my-attrib="..."'
  - [ ] XML prolog & Doctype
  - [ ] Enumerables as children
  - [ ] Concatenation to node lists with + operator
- 
