@@ -24,7 +24,7 @@ install-package OpenRasta.Xix -pre
 Or from any shell window, use `nuget.exe`.
 
 ```
-nuget install xix -pre
+nuget install OpenRasta.Xix -pre
 ```
 
 ## Documentation by example
@@ -50,7 +50,7 @@ var document = xml.html
 ```
 
 ### Default namespaces
-```chsarp
+```csharp
 dynamic html = new Xml("http://www.w3.org/1999/xhtml");
 
 var document = html.html[html.body]
@@ -62,7 +62,7 @@ var document = html.html[html.body]
 ```
 
 ### Aliasing namespaces
-```chsharp
+```csharp
 dynamic soap = new Xml("soap", "http://www.w3.org/2001/12/soap-envelope");
 
 var document = soap.Envelope[soap:Body];
@@ -74,7 +74,7 @@ var document = soap.Envelope[soap:Body];
 ```
 
 ### Mix and match
-```chsarp
+```csharp
 dynamic xml = new Xix();
 dynamic html = new Xml("http://www.w3.org/1999/xhtml");
 dynamic svg = new Xml("svg", "http://www.w3.org/2000/svg");
