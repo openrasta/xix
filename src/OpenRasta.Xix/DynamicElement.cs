@@ -58,6 +58,11 @@ namespace OpenRasta.Xix
       }
     }
 
+    public DynamicElement attr(string name, string value)
+    {
+      WrappedElement.Add(new XAttribute(name, value));
+      return this;
+    }
     public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
     {
       var newProperty = new XAttribute(binder.Name.ConvertUndescores(), args[0]);
