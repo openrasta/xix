@@ -49,6 +49,7 @@ var document = xml.html
 </html>
 ```
 
+
 ### Default namespaces
 ```csharp
 dynamic html = new Xml("http://www.w3.org/1999/xhtml");
@@ -113,6 +114,44 @@ var doco = html.input.type("checkbox").@checked();
 ```
 ```xml
 <input type="checkbox" checked="checked" />
+```
+### Attributes with '-' in them
+
+In order to make life easier for most cases, any element name or attribute
+containing an `_` will be turned into a dash for your convenience.
+
+
+```csharp
+dynamic xml = new Xml();
+
+var document = xml.element.with_attribute("value");
+```
+```xml
+<element with-attribute="value" />
+```
+
+If you're sure you want an underscore, you can double it (just to make sure you really meant something looking this bad).
+
+
+```csharp
+dynamic xml = new Xml();
+
+var document = xml.element.with__attribute("value");
+```
+```xml
+<element with_attribute="value" />
+```
+
+### Custom attributes whichever way I want
+
+
+```csharp
+dynamic xml = new Xml();
+
+var document = xml.element.attr("name-mixing_things", "has a value");
+```
+```xml
+<element name-mixing_things="has a value" />
 ```
 
 ### namespaced-attributes
