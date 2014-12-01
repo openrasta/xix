@@ -13,7 +13,7 @@ Latest builds of Xix are available on the AppVeyor project feed, at `https://ci.
 
 To add a source, from the command line, use `nuget sources`.
 
-`C:\> nuget sources add -name xix -source https://ci.appveyor.com/nuget/xix-k703x7hdb0fb
+`C:\> nuget sources add -name xix -source https://ci.appveyor.com/nuget/xix-k703x7hdb0fb`
 
 You can then install from the package manager console.
 
