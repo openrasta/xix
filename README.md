@@ -1,18 +1,33 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/h30pjv455g6wp79e?svg=true)](https://ci.appveyor.com/project/serialseb/xix)
+
+
 # OpenRasta Xix Library
 
 Tired of noisy XElements to generate your xml? Xix (standing for Xix Is Xml) is
 the smallest possible library that allows writing xml simply and succinctly.
 
+
 ##Installing
 
-When Xix makes it way to nuget, installing it to a project is simple, as it has
-no dependencies.
+Latest builds of Xix are available on the AppVeyor project feed, at `https://ci.appveyor.com/nuget/xix-k703x7hdb0fb`
+
+To add a source, from the command line, use `nuget sources`.
+
+`C:\> nuget sources add -name xix -source https://ci.appveyor.com/nuget/xix-k703x7hdb0fb
+
+You can then install from the package manager console.
 
 ```
-install-package OpenRasta.xix
+install-package OpenRasta.Xix -pre
 ```
 
-## Examples
+Or from any shell window, use `nuget.exe`.
+
+```
+nuget install xix -pre
+```
+
+## Documentation by example
 
 ### Simple xml
 ```csharp
