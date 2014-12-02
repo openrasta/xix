@@ -105,10 +105,25 @@ var document =
 </codeSample>
 ```
 
+### namespaced-attributes
+In XML, the namespace of an attribute is dependent on the interpretation of the element that contains them. To enforce a namespace for an attribute, one needs to use the prefixed syntax.
+
+```csharp
+dynamic xml = new Xix();
+dynamic xlink = new Xix("xlink", "http://www.w3.org/1999/xlink");
+var doco = xml.html.attr(xlink.href("http://google.com"))
+			[xml.body.attr(xlink.@base("http://bing.com"))];
+```
+
+```xml
+<html xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://google.com">
+	<body xlink:base="http://bing.com" />
+</html>
+```
 ## Todo List
 
  - [ ] Serialization to HTML5 (low priority)
- - [ ] Prefixed namespace attributes
+ - [x] Prefixed namespace attributes
  - [x] Dash in attribute names e.g. 'my-attrib="..."'
  - [ ] XML prolog & Doctype
  - [ ] Enumerables as children

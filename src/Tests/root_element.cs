@@ -8,7 +8,7 @@ namespace Tests
     [Test]
     public void serialize_root()
     {
-      dynamic _ = new Xml();
+      dynamic _ = new Xix();
       var doco = _.rootElement;
       Assert.That(doco.ToString(), Is.EqualTo("<rootElement />"));
     }

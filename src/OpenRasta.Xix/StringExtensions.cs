@@ -7,14 +7,13 @@ namespace OpenRasta.Xix
     public static string ConvertUndescores(this string name)
     {
       var sb = new StringBuilder();
-      bool lastWas_ = false;
-      for (int i = 0; i < name.Length; i++)
+      var lastWasUnderscore = false;
+      foreach (var cur in name)
       {
-        char cur = name[i];
-        if (cur == '_' && lastWas_) {sb.Append('_'); lastWas_ = false;}
-        else if (cur == '_' && !lastWas_) lastWas_ = true;
-        else if (lastWas_) { lastWas_ = false; sb.Append('-').Append(cur); }
-        else sb.Append(cur);
+          if (cur == '_' && lastWasUnderscore) {sb.Append('_'); lastWasUnderscore = false;}
+          else if (cur == '_' && !lastWasUnderscore) lastWasUnderscore = true;
+          else if (lastWasUnderscore) { lastWasUnderscore = false; sb.Append('-').Append(cur); }
+          else sb.Append(cur);
       }
       return sb.ToString();
     }

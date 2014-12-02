@@ -8,7 +8,7 @@ namespace Tests
     [Test]
     public void serialize_graph()
     {
-      dynamic _ = new Xml();
+      dynamic _ = new Xix();
       var doco = _.rootElement[_.childElement];
       Assert.That(doco.ToString(), Is.EqualTo("<rootElement><childElement /></rootElement>"));
     }
@@ -16,7 +16,7 @@ namespace Tests
     [Test]
     public void serialize_graph_attribs()
     {
-      dynamic _ = new Xml();
+      dynamic _ = new Xix();
       var doco =
         _.rootElement[
           _.childElement.name("value")
