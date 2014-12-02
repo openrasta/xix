@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.Xml.Linq;
 using OpenRasta.Xix.Annotations;
@@ -18,6 +20,14 @@ namespace OpenRasta.Xix
             _wrappedElement = new XElement(@namespace + localName).XmlNs(namespacePrefix, @namespace);
         }
 
+        public XixElement this[IEnumerable<dynamic> childElements]
+        {
+            get
+            {
+                foreach (var childElement in childElements) childElement.AttachTo(_wrappedElement);
+                return this;
+            }
+        }
         [UsedImplicitly]
         public XixElement this[XixElement childElement]
         {

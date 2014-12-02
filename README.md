@@ -120,11 +120,28 @@ var doco = xml.html.attr(xlink.href("http://google.com"))
 	<body xlink:base="http://bing.com" />
 </html>
 ```
+
+### Using linq
+
+```chsarp
+var sashimis = new[] { "Ikura", "Tobiko" };
+dynamic xml = new Xix();
+var doco = xml.menu[sashimis.Select(_ => xml.sashimi[_])];
+```
+
+```xml
+<menu>
+	<sashimi>Ikura</sashimi>
+	<sashimi>Tobiko</sashimi>
+</menu>
+```
 ## Todo List
 
  - [ ] Serialization to HTML5 (low priority)
  - [x] Prefixed namespace attributes
  - [x] Dash in attribute names e.g. 'my-attrib="..."'
  - [ ] XML prolog & Doctype
- - [ ] Enumerables as children
- - [ ] Concatenation to node lists with + operator
+ - [x] Enumerables as children
+ - [ ] Concatenation to node lists with + operator (maybe?)
+ - [ ] Query against loaded document
+ - [ ] System.Xml.Linq conversions

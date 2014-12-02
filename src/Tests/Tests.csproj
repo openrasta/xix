@@ -51,6 +51,7 @@
     <Compile Include="attributes.cs" />
     <Compile Include="default_namespace.cs" />
     <Compile Include="child_element.cs" />
+    <Compile Include="enumerable_children.cs" />
     <Compile Include="root_element.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="aliased_namespaces.cs" />
