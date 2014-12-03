@@ -94,8 +94,6 @@ var document =
     [html.head[html.body
       [svg.width("200px").height("100px")]
     ]];
-
-    svg.width-height
 ```
 ```xml
 <codeSample>
@@ -117,7 +115,7 @@ var doco = xml.html.attr(xlink.href("http://google.com"))
 
 ```xml
 <html xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://google.com">
-	<body xlink:base="http://bing.com" />
+  <body xlink:base="http://bing.com" />
 </html>
 ```
 
@@ -131,17 +129,72 @@ var doco = xml.menu[sashimis.Select(_ => xml.sashimi[_])];
 
 ```xml
 <menu>
-	<sashimi>Ikura</sashimi>
-	<sashimi>Tobiko</sashimi>
+  <sashimi>Ikura</sashimi>
+  <sashimi>Tobiko</sashimi>
 </menu>
 ```
+
+### Interop with `System.Xml.Linq`
+
+Any element and attibute created by Xix converts implicitly to the Linq types,
+so you can use them interchangeably.
+
+```csharp
+dynamic xml = new Xix();
+var doco = new XDocument(xml.body.base("http://google.com")));
+XElement titleElement = xml.title;
+```
+```xml
+<body base="http://google.com" />
+```
+
+XAttributes and XElement can be added to XixElements easily.
+```csharp
+dynamic html = new Xix();
+var doco = html.head
+            [new XElement("title", "hello")]
+            [html.base.attr(new XAttribute("src", "http://example.org"))];
+```
+
+```xml
+<head>
+  <title>hello</title>
+  <base src="http://example.org" />
+</head>
+```
+
+Same can be done using collection of XElements, using Linq.
+```csharp
+var sushis = new[] {"Tobiko", "Ikura"};
+dynamic xml = new Xix();
+var doco = xml.sushis[sushis.Select(sushiName => new XElement("sushi", sushiName))];
+```
+
+```xml
+<sushis>
+  <sushi>Ikura</sushi>
+  <sushi>Tobiko</sushi>
+</sushis>
+```
+
+Same applies to attributes.
+```csharp
+var 
 ## Todo List
 
- - [ ] Serialization to HTML5 (low priority)
  - [x] Prefixed namespace attributes
  - [x] Dash in attribute names e.g. 'my-attrib="..."'
- - [ ] XML prolog & Doctype
  - [x] Enumerables as children
+ - [x] System.Xml.Linq conversions
+ - [ ] HTML boolean attributes (element.attribute())
+ - [ ] Often-used namespaces
+ - [ ] Query support
+
+
+
+## Ideas not yet requested by anyone yet
+
  - [ ] Concatenation to node lists with + operator (maybe?)
- - [ ] Query against loaded document
- - [ ] System.Xml.Linq conversions
+ - [ ] Serialization to HTML5 (low priority)
+ - [ ] XmlDocument / XmlNode interop
+ - [ ] Version without any ties to System.Xml.Linq (or System.Xml?)

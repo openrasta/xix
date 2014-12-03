@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attributes.cs" />
+    <Compile Include="conversions.cs" />
     <Compile Include="default_namespace.cs" />
     <Compile Include="child_element.cs" />
     <Compile Include="enumerable_children.cs" />
