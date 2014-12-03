@@ -31,7 +31,7 @@ nuget install xix -pre
 
 ### Simple xml
 ```csharp
-dynamic xml = new Xml();
+dynamic xml = new Xix();
 
 var document = xml.html
                 [xml.head[xml.title["Title"]]
@@ -47,16 +47,6 @@ var document = xml.html
     Some tet
   </body>
 </html>
-```
-
-### Attributes
-```csharp
-dynamic xml = new Xml();
-
-var document = xml.html.base("http://example.org/base");
-```
-```xml
-<html base="http://example.org/base" />
 ```
 
 ### Default namespaces
@@ -85,7 +75,7 @@ var document = soap.Envelope[soap:Body];
 
 ### Mix and match
 ```chsarp
-dynamic xml = new Xml();
+dynamic xml = new Xix();
 dynamic html = new Xml("http://www.w3.org/1999/xhtml");
 dynamic svg = new Xml("svg", "http://www.w3.org/2000/svg");
 
@@ -101,6 +91,28 @@ var document =
     <svg:svg width="200px" height="100px" />
   </html>
 </codeSample>
+```
+
+### Attributes
+```csharp
+dynamic xml = new Xix();
+
+var document = xml.html.base("http://example.org/base");
+```
+```xml
+<html base="http://example.org/base" />
+```
+
+### Boolean attributes
+
+Note that this is the correct serialisation for boolean attributes, although
+browsers are a bit more flexible than that.
+```csharp
+dynamic html = new Xix();
+var doco = html.input.type("checkbox").@checked();
+```
+```xml
+<input type="checkbox" checked="checked" />
 ```
 
 ### namespaced-attributes
@@ -179,14 +191,14 @@ var doco = xml.sushis[sushis.Select(sushiName => new XElement("sushi", sushiName
 
 Same applies to attributes.
 ```csharp
-var 
+var
 ## Todo List
 
  - [x] Prefixed namespace attributes
  - [x] Dash in attribute names e.g. 'my-attrib="..."'
  - [x] Enumerables as children
  - [x] System.Xml.Linq conversions
- - [ ] HTML boolean attributes (element.attribute())
+ - [x] HTML boolean attributes (element.attribute())
  - [ ] Often-used namespaces
  - [ ] Query support
 

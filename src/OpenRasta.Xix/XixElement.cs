@@ -115,13 +115,23 @@ namespace OpenRasta.Xix
 
         public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
         {
-            if (args.Length != 1)
+            if (args.Length == 0)
             {
-                result = null;
-                return false;
+                var attribName = binder.Name.ConvertUndescores();
+                return AddNameValueAttribute(attribName, attribName, out result);
+            }
+            if (args.Length == 1)
+            {
+                return AddNameValueAttribute(binder.Name.ConvertUndescores(), args[0], out result);
             }
 
-            _wrappedElement.Add(new XAttribute(binder.Name.ConvertUndescores(), args[0]));
+            result = null;
+            return false;
+        }
+
+        private bool AddNameValueAttribute(string name, object value, out object result)
+        {
+            _wrappedElement.Add(new XAttribute(name, value));
             result = this;
             return true;
         }
