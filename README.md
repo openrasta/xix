@@ -172,7 +172,7 @@ var doco = xml.html.attr(xlink.href("http://google.com"))
 
 ### Using linq
 
-```chsarp
+```csharp
 var sashimis = new[] { "Ikura", "Tobiko" };
 dynamic xml = new Xix();
 var doco = xml.menu[sashimis.Select(_ => xml.sashimi[_])];
@@ -229,8 +229,7 @@ var doco = xml.sushis[sushis.Select(sushiName => new XElement("sushi", sushiName
 ```
 
 Same applies to attributes.
-```csharp
-var
+
 ## Todo List
 
  - [x] Prefixed namespace attributes
